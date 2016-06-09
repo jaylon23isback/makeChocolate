@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en-US" ng-app="TIYAngularApp">
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="js/tiy-ng-controller.js"></script>
+
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="css/tiy-style.css" rel="stylesheet" type="text/css"/>
+</head>
+
+<h1>Hello Jaylon!</h1>
+ 
+<h2>Welcome Back</h2>
+
+
+
+
+<body ng-controller="SampleController">
+
+
+{{! changing the mustache delimiter so it doesn't conflict with  }}
+{{! the default angularjs delimeters - https://mustache.github.io/mustache.5.html for more info  }}
+{{=<% %>=}}
+
+
+<div id="logo-div">
+    <img src="https://www.theironyard.com/etc/designs/theironyard/icons/iron-yard-logo.svg"/>
+</div>
+
+
+<p>How Many Big Bars : <input type="number" ng-model="chocolateInput.bigs"></p>
+<p>How Many Small Bars : <input type="number" ng-model="chocolateInput.small"></p>
+<p>How Many Goals : <input type="number" ng-model="chocolateInput.goal"></p>
+
+
+<br><br>
+
+<input type="button" ng-click="makeChocolate()" value="Make Chocolate"/>
+
+{{madeChocolate}}
+
+
+<div ng-repeat="chocIndex in makeArray(chocolateInput.bigs)">
+    <div class="choc-big-bar">{{chocIndex + 1}}</div>
+
+</div>
+
+<div ng-repeat="chocIndex in makeArray(chocolateInput.small)">
+    <div class="choc-small-bar">{{chocIndex + 1}}</div>
+
+</div>
+
+
+Results
+<br><br>
+
+<div ng-repeat="chocIndex in makeArray(madeChocolate.bigs)">
+    <div class="choc-big-bar">{{chocIndex + 1}}</div>
+
+</div>
+
+<div ng-repeat="chocIndex in makeArray(madeChocolate.smalls)">
+    <div class="choc-small-bar">{{chocIndex + 1}}</div>
+
+</div>
+
+
+</body>
+
+</html>
